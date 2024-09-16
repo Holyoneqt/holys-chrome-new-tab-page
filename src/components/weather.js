@@ -22,9 +22,8 @@ function populateWeather(apiResponse) {
 	const temperature = apiResponse.current.temperature_2m;
 	const weatherCode = apiResponse.current.weather_code.toString();
 
-	WEATHER_ICON_ELEMENT.src = getWeatherIcon(weatherCode);
+	WEATHER_ICON_ELEMENT.src = getWeatherIcon(weatherCode, isDay);
 	TEMPERATURE_ELEMENT.innerHTML = `${Math.round(temperature)} °C`;
-	console.log(isDay, temperature, weatherCode);
 }
 
 function getWeatherIcon(code, isDay) {
