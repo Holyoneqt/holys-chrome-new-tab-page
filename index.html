@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/_index.css" />
+    <script type="module" src="src/index.js"></script>
+    <title>New Tab</title>
+  </head>
+  <body>
+    <main>
+      <div class="background">
+        <img id="background-image" />
+      </div>
+      <nav class="links tile">
+        <a class="link-item" href="https://mail.google.com/">
+          <img src="assets/icons/Gmail.svg" />
+        </a>
+        <a class="link-item" href="https://calendar.google.com/">
+          <img src="assets/icons/Google_Calendar.svg" />
+        </a>
+        <a class="link-item" href="https://drive.google.com/">
+          <img src="assets/icons/Google_Drive.svg" />
+        </a>
+        <a class="link-item" href="https://maps.google.com/">
+          <img src="assets/icons/Google_Maps.svg" />
+        </a>
+        <!-- <a class="link-item" href="https://www.strava.com/dashboard">
+          <img src="assets/icons/Strava.svg" />
+        </a> -->
+      </nav>
+
+			<div class="weather tile">
+				<img id="weather-icon" />
+				<p id="weather-temperature"></p>
+			</div>
+
+			<div class="time">
+				<div id="time-hours">17:38</div>
+				<p id="time-date">Sonntag, 15. September 2024</p>
+			</div>
+    </main>
+  </body>
+</html>

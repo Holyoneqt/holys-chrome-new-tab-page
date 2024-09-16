@@ -1,0 +1,15 @@
+.time {
+	position: absolute;
+	bottom: 16px;
+	left: 16px;
+	color: var(--color-white);
+}
+
+#time-hours {
+	font-size: 128px;
+	font-weight: 600;
+}
+
+#time-date {
+	font-size: 40px;
+}
