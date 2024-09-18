@@ -14,3 +14,9 @@ main {
 	border-radius: 16px;
 	box-shadow: var(--box-shadow);
 }
+.tile-dark {
+	background-color: var(--color-dark);
+}
+.tile-large {
+	padding: 8px 32px;
+}

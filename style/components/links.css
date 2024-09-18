@@ -5,16 +5,42 @@
 	display: flex;
 	flex-direction: row;
 	gap: 12px;
+
+	--expanded-rows: 2;
+	--link-item-size: 48px;
+	--links-grid-gap: 4px;
+}
+
+.links-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: var(--links-grid-gap);
+	overflow: hidden;
+	transition: height .2s ease-in-out	;
+}
+
+.links-grid[collapsed] {
+	height: var(--link-item-size);
+}
+
+.links-grid[expanded] {
+	height: calc(var(--link-item-size) * var(--expanded-rows) + (var(--links-grid-gap) * (var(--expanded-rows) - 1)));
+}
+
+.links-grid[expanded] + #links-toggle {
+	transform: rotate(180deg);
 }
 
 .link-item {
 	display: flex;
 	justify-content: center;
-	width: 48px;
-	height: 48px;
+	width: var(--link-item-size);
+	height: var(--link-item-size);
 	padding: 12px;
 	border-radius: 100%;
+	transition: all .2s ease;
 }
+
 .link-item:hover {
 	background-color: var(--color-light);
 }
