@@ -41,6 +41,6 @@
 	transition: all .2s ease;
 }
 
-.link-item:hover {
+.link-item:hover, .link-item:focus {
 	background-color: var(--color-light);
 }
