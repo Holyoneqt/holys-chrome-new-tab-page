@@ -24,6 +24,7 @@
 }
 
 .links-grid[expanded] {
+	/* Calculates Height of expanded Grid: (Link size in px * Num. Rows) + (Gap between Rows in px) */
 	height: calc(var(--link-item-size) * var(--expanded-rows) + (var(--links-grid-gap) * (var(--expanded-rows) - 1)));
 }
 

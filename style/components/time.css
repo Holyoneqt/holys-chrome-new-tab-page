@@ -9,8 +9,11 @@
 	font-size: 164px;
 	line-height: 164px;
 	font-weight: 600;
+	user-select: none;
 }
 
 #time-date {
-	font-size: 32px;
+	font-size: 24px;
+	margin-top: 12px;
+	text-align: center;
 }
