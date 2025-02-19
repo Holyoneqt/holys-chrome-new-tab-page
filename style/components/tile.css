@@ -1,0 +1,17 @@
+.tile {
+	background-color: var(--color-white);
+	padding: 8px;
+	border-radius: 12px;
+	box-shadow: var(--box-shadow);
+}
+.tile-dark {
+	background-color: var(--color-dark);
+}
+.tile-large {
+	padding: 8px 32px;
+}
+.tile-transparent {
+	background-color: transparent;
+	backdrop-filter: blur(20px);
+	border: 2px solid var(--color-dark)
+}

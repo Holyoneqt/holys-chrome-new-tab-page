@@ -8,12 +8,12 @@
 
 	--expanded-rows: 2;
 	--link-item-size: 48px;
-	--links-grid-gap: 4px;
+	--links-grid-gap:6px;
 }
 
 .links-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	gap: var(--links-grid-gap);
 	overflow: hidden;
 	transition: height .2s ease-in-out	;
@@ -34,14 +34,15 @@
 
 .link-item {
 	display: flex;
+	position: relative;
 	justify-content: center;
 	width: var(--link-item-size);
 	height: var(--link-item-size);
 	padding: 12px;
-	border-radius: 100%;
+	border-radius: 12px;
 	transition: all .2s ease;
 }
 
-.link-item:hover, .link-item:focus {
+.link-item:not(#links-toggle):hover, .link-item:focus {
 	background-color: var(--color-light);
 }
