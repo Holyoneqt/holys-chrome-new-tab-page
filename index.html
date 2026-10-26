@@ -2,10 +2,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101714" />
+    <meta name="description" content="A personal new tab page with shortcuts, local weather and the current time." />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./style/index.css" />
     <script type="module" src="./src/index.js"></script>
@@ -14,55 +16,70 @@
   <body>
     <main>
       <div class="background">
-        <img id="background-image" />
+        <img id="background-image" alt="" />
       </div>
-      <nav class="links tile">
+      <div class="background-shade" aria-hidden="true"></div>
+      <nav class="links" aria-label="Quick links">
         <div class="links-grid js-links-grid" collapsed>
           <a class="link-item" href="https://mail.google.com/" title="Mail">
-            <img src="assets/icons/Gmail.svg" />
+            <img src="assets/icons/Gmail.svg" alt="" />
+            <span>Mail</span>
           </a>
           <a class="link-item" href="https://maps.google.com/" title="Maps">
-            <img src="assets/icons/Google_Maps.svg" />
+            <img src="assets/icons/Google_Maps.svg" alt="" />
+            <span>Maps</span>
           </a>
           <a class="link-item" href="https://calendar.google.com/" title="Calendar">
-            <img src="assets/icons/Google_Calendar.svg" />
+            <img src="assets/icons/Google_Calendar.svg" alt="" />
+            <span>Calendar</span>
           </a>
           <a class="link-item" href="https://drive.google.com/" title="Drive">
-            <img src="assets/icons/Google_Drive.svg" />
+            <img src="assets/icons/Google_Drive.svg" alt="" />
+            <span>Drive</span>
           </a>
           <a class="link-item" href="https://www.youtube.com/" title="YouTube">
-            <img src="assets/icons/YouTube.svg" />
+            <img src="assets/icons/YouTube.svg" alt="" />
+            <span>YouTube</span>
           </a>
           <a class="link-item" href="https://www.strava.com/dashboard" title="Strava">
-            <img src="assets/icons/Strava.svg" />
+            <img src="assets/icons/Strava.svg" alt="" />
+            <span>Strava</span>
           </a>
           <a class="link-item" href="https://connect.garmin.com/modern/" title="Garmin Connect">
-            <img src="assets/icons/Garmin.webp" />
+            <img src="assets/icons/Garmin.webp" alt="" />
+            <span>Garmin</span>
           </a>
           <a class="link-item" href="http://de.twitch.tv/directory" title="Twitch">
-            <img src="assets/icons/Twitch.svg" />
+            <img src="assets/icons/Twitch.svg" alt="" />
+            <span>Twitch</span>
           </a>
           <a class="link-item" href="https://holyoneqt.github.io/mythicplus-key-checker/index.html" title="M+ Keystone Checker">
-            <img src="assets/icons/Keystone_Checker.png" />
+            <img src="assets/icons/Keystone_Checker.png" alt="" />
+            <span>Keystones</span>
           </a>
           <a class="link-item" href="https://map.geo.admin.ch/#/map?lang=de&center=2699127.86,1262787.72&z=4&topic=ech&layers=ch.swisstopo.swissalti3d-reliefschattierung,f;ch.bav.haltestellen-oev,f;ch.astra.wanderland-sperrungen_umleitungen,f;ch.swisstopo.swisstlm3d-wanderwege,f&bgLayer=ch.swisstopo.pixelkarte-farbe&catalogNodes=457" title="Schweizer Karte">
-            <img src="assets/icons/GeoAdmin_Map.png" />
+            <img src="assets/icons/GeoAdmin_Map.png" alt="" />
+            <span>SwissTopo</span>
           </a>
         </div>
-        <a id="links-toggle" class="link-item">
-          <img src="assets/icons/arrow_down.svg" />
-        </a>
+        <button id="links-toggle" class="links-toggle" type="button" aria-label="Show more" aria-expanded="false">
+          <span>Show more</span>
+          <img src="assets/icons/arrow_down.svg" alt="" />
+        </button>
       </nav>
 
-			<a class="weather tile" href="https://www.meteoschweiz.admin.ch/lokalprognose/winterthur/8400.html">
-				<img id="weather-icon" />
-				<p id="weather-temperature"></p>
-			</a>
+      <a class="weather" href="https://www.meteoschweiz.admin.ch/lokalprognose/winterthur/8400.html" aria-label="Local weather forecast">
+        <span class="weather-label">WINTERTHUR, CH</span>
+        <span class="weather-reading">
+          <img id="weather-icon" alt="" />
+          <span id="weather-temperature" aria-live="polite"></span>
+        </span>
+      </a>
 
-			<div class="time tile tile-transparent tile-large">
-				<div id="time-hours">17:38</div>
-				<p id="time-date">Sonntag, 15. September 2024</p>
-			</div>
+      <section class="time" aria-label="Current date and time">
+        <div id="time-hours" aria-live="off">17:38</div>
+        <p id="time-date">Sonntag, 15. September 2024</p>
+      </section>
     </main>
   </body>
 </html>

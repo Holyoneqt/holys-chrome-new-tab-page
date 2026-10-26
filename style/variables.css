@@ -1,8 +1,10 @@
 :root {
 	--color-white: #fff;
-	--color-light: #dfdfdf;
-	--color-gray: #adadad;
-	--color-dark: #1f1f1f;
-
-	--box-shadow: rgba(0, 0, 0, 0.5) 6px 10px 8px;
+	--color-light: #f3f5f1;
+	--color-gray: #a8b1aa;
+	--color-dark: #101714;
+	--color-accent: #c6f277;
+	--glass: rgba(18, 27, 24, 0.5);
+	--glass-border: rgba(255, 255, 255, 0.2);
+	--box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
 }

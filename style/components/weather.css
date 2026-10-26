@@ -1,22 +1,81 @@
 .weather {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+	position: absolute;
+	top: 28px;
+	right: 28px;
+	display: grid;
+	min-width: 172px;
+	gap: 9px;
+	padding: 17px 19px;
+	border: 1px solid var(--glass-border);
+	border-radius: 18px;
+	background: rgba(18, 27, 24, 0.38);
+	box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+	backdrop-filter: blur(18px) saturate(125%);
+	-webkit-backdrop-filter: blur(18px) saturate(125%);
+	color: var(--color-white);
+	text-decoration: none;
+	transition: background 160ms ease, transform 160ms ease;
+}
 
-  width: 90px;
-  height: 90px;
-  align-items: center;
-  justify-content: center;
+.weather:hover,
+.weather:focus-visible {
+	transform: translateY(-2px);
+	background: rgba(18, 27, 24, 0.54);
+	outline: 2px solid rgba(255, 255, 255, 0.72);
+	outline-offset: 3px;
+}
+
+.weather-label {
+	color: rgba(255, 255, 255, 0.68);
+	text-align: center;
+}
+
+.weather-reading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 }
 
 #weather-icon {
-  width: 40px;
-  height: 40px;
+	width: 36px;
+	height: 36px;
+	object-fit: contain;
+	filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.18));
 }
+
 #weather-temperature {
-  font-size: 16px;
-  text-align: center;
+	font-family: "Manrope", sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: -0.05em;
+}
+
+@media (max-width: 560px) {
+	.weather {
+		top: auto;
+		right: 16px;
+		bottom: 31px;
+		min-width: 128px;
+		gap: 6px;
+		padding: 12px 13px;
+		border-radius: 15px;
+	}
+
+	.weather-label {
+		font-size: 8px;
+	}
+
+	.weather-reading {
+		gap: 6px;
+	}
+
+	#weather-icon {
+		width: 28px;
+		height: 28px;
+	}
+
+	#weather-temperature {
+		font-size: 20px;
+	}
 }
