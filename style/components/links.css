@@ -10,6 +10,7 @@
 	box-shadow: var(--box-shadow);
 	backdrop-filter: blur(24px) saturate(135%);
 	-webkit-backdrop-filter: blur(24px) saturate(135%);
+	overflow: hidden;
 }
 
 .eyebrow,
@@ -36,7 +37,6 @@
 	display: grid;
 	grid-template-columns: repeat(5, minmax(0, 1fr));
 	gap: 8px;
-	overflow: hidden;
 	transition: height 220ms ease;
 }
 
@@ -87,8 +87,9 @@
 .link-item:focus-visible {
 	transform: translateY(-2px);
 	border-color: rgba(255, 255, 255, 0.12);
-	background: rgba(255, 255, 255, 0.12);
-	outline: none;
+	background: var(--glass);
+	outline: 2px solid rgba(255, 255, 255, 0.72);
+	outline-offset: 3px;
 }
 
 .links-toggle {
@@ -109,7 +110,7 @@
 
 .links-toggle:hover,
 .links-toggle:focus-visible {
-	background: rgba(255, 255, 255, 0.1);
+	background: var(--glass);
 	color: var(--color-white);
 	outline: none;
 }

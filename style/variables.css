@@ -4,7 +4,7 @@
 	--color-gray: #a8b1aa;
 	--color-dark: #101714;
 	--color-accent: #c6f277;
-	--glass: rgba(18, 27, 24, 0.5);
+	--glass: rgba(255, 255, 255, 0.1);
 	--glass-border: rgba(255, 255, 255, 0.2);
 	--box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
 }
