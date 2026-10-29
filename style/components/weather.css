@@ -1,11 +1,11 @@
 .weather {
 	position: absolute;
-	top: 28px;
-	right: 28px;
+	top: 32px;
+	right: 32px;
 	display: grid;
-	min-width: 172px;
+	/* min-width: 172px; */
 	gap: 9px;
-	padding: 17px 19px;
+	padding: 32px;
 	border: 1px solid var(--glass-border);
 	border-radius: 18px;
 	background: var(--glass);
