@@ -3,17 +3,8 @@
 	top: 32px;
 	right: 32px;
 	display: grid;
-	/* min-width: 172px; */
-	gap: 9px;
-	padding: 32px;
-	border: 1px solid var(--glass-border);
-	border-radius: 18px;
-	background: var(--glass);
-	box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
-	backdrop-filter: blur(18px) saturate(125%);
-	-webkit-backdrop-filter: blur(18px) saturate(125%);
-	color: var(--color-white);
-	text-decoration: none;
+	gap: 12px;
+	
 	transition: background 160ms ease, transform 160ms ease;
 }
 
