@@ -1,18 +1,16 @@
 import { getBackgroundImage } from './components/background.js';
+import { initCalendar } from './components/calendar.js';
 import { initLinks } from './components/links.js';
 import { startTimeInterval } from './components/time.js';
 import { getWeather } from './components/weather.js';
 
 window.onload = () => {
-	// Set Background-Image
+	// Set background image
 	document.getElementById('background-image').src = getBackgroundImage();
 
-	// Init Links functionality
+	// Init UI components
 	initLinks();
-
-	// Start Interval to update Time every 3 Seconds
+	initCalendar();
 	startTimeInterval();
-
-	// Call Weather Api and display Weather
 	getWeather();
 }
