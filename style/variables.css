@@ -42,6 +42,21 @@
 	--duration-pop: 0.35s;
 	--ease-pop: cubic-bezier(0.34, 1.4, 0.64, 1);
 
+	/* Background fog (ellipse sizes are relative to a layer twice the screen width) */
+	--fog-layer-a:
+		radial-gradient(ellipse 30% 28% at 18% 62%, rgba(255, 255, 255, 0.15), transparent 70%),
+		radial-gradient(ellipse 24% 20% at 52% 30%, rgba(255, 255, 255, 0.11), transparent 70%),
+		radial-gradient(ellipse 28% 24% at 84% 72%, rgba(255, 255, 255, 0.13), transparent 70%);
+	--fog-layer-b:
+		radial-gradient(ellipse 26% 22% at 30% 24%, rgba(255, 255, 255, 0.11), transparent 70%),
+		radial-gradient(ellipse 32% 26% at 66% 80%, rgba(255, 255, 255, 0.13), transparent 70%),
+		radial-gradient(ellipse 22% 20% at 92% 38%, rgba(255, 255, 255, 0.09), transparent 70%);
+	--fog-drift-from: translate3d(-20%, 2%, 0);
+	--fog-drift-to: translate3d(20%, -2%, 0);
+	--fog-duration-a: 40s;
+	--fog-duration-b: 60s;
+	--fog-fade-in: 3s;
+
 	/* "More" links expansion */
 	--duration-expand: 0.4s;
 	--ease-expand: cubic-bezier(0.22, 1, 0.36, 1);

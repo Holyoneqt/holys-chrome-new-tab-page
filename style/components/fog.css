@@ -1,0 +1,46 @@
+/* Slow drifting fog. Two oversized gradient layers moved with transform only (GPU, no repaints). */
+.fog {
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	animation: fog-in var(--fog-fade-in) ease-out both;
+}
+
+/* 200% wide and offset by half, so a ±20% drift never shows an edge. */
+.fog-layer {
+	position: absolute;
+	top: -10%;
+	left: -50%;
+	width: 200%;
+	height: 120%;
+	will-change: transform;
+	animation: fog-drift var(--fog-duration-a) ease-in-out infinite alternate;
+}
+
+.fog-a {
+	background: var(--fog-layer-a);
+}
+
+.fog-b {
+	background: var(--fog-layer-b);
+	animation-duration: var(--fog-duration-b);
+	animation-direction: alternate-reverse;
+}
+
+@keyframes fog-drift {
+	from { transform: var(--fog-drift-from); }
+	to { transform: var(--fog-drift-to); }
+}
+
+@keyframes fog-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fog,
+	.fog-layer {
+		animation: none;
+	}
+}
