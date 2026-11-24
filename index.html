@@ -1,93 +1,51 @@
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101714" />
-    <meta name="description" content="A personal new tab page with shortcuts, local weather and the current time." />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./style/index.css" />
-    <script type="module" src="./src/index.js"></script>
-    <title>New Tab</title>
-  </head>
-  <body>
-    <main>
-      <div class="background">
-        <img id="background-image" alt="" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Tab</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="./style/index.css">
+  <script type="module" src="./src/index.js"></script>
+</head>
+<body>
+  <div class="cursor-light" id="cursor-light" aria-hidden="true"></div>
+  <main class="dash">
+    <!-- Top left: quick links -->
+    <section class="card links" aria-label="Quick links">
+      <div class="grid" id="links-main"></div>
+      <div class="more" id="links-more">
+        <div class="more-inner">
+          <div class="grid" id="links-extra"></div>
+        </div>
       </div>
-      <div class="background-shade" aria-hidden="true"></div>
-      <nav class="tile links" aria-label="Quick links">
-        <div class="links-grid js-links-grid" collapsed>
-          <a class="link-item" href="https://mail.google.com/" title="Mail">
-            <img src="assets/icons/Gmail.png" alt="" />
-            <span>Mail</span>
-          </a>
-          <a class="link-item" href="https://maps.google.com/" title="Maps">
-            <img src="assets/icons/Google_Maps.svg" alt="" />
-            <span>Maps</span>
-          </a>
-          <a class="link-item" href="https://calendar.google.com/" title="Calendar">
-            <img src="assets/icons/Google_Calendar.png" alt="" />
-            <span>Calendar</span>
-          </a>
-          <a class="link-item" href="https://drive.google.com/" title="Drive">
-            <img src="assets/icons/Google_Drive.png" alt="" />
-            <span>Drive</span>
-          </a>
-          <a class="link-item" href="https://www.youtube.com/" title="YouTube">
-            <img src="assets/icons/YouTube.svg" alt="" />
-            <span>YouTube</span>
-          </a>
-          <a class="link-item" href="https://www.strava.com/dashboard" title="Strava">
-            <img src="assets/icons/Strava.svg" alt="" />
-            <span>Strava</span>
-          </a>
-          <a class="link-item" href="https://connect.garmin.com/modern/" title="Garmin Connect">
-            <img src="assets/icons/Garmin.webp" alt="" />
-            <span>Garmin</span>
-          </a>
-          <a class="link-item" href="http://de.twitch.tv/directory" title="Twitch">
-            <img src="assets/icons/Twitch.svg" alt="" />
-            <span>Twitch</span>
-          </a>
-          <a class="link-item" href="https://holyoneqt.github.io/mythicplus-key-checker/index.html" title="M+ Keystone Checker">
-            <img src="assets/icons/Keystone_Checker.png" alt="" />
-            <span>Keystones</span>
-          </a>
-          <a class="link-item" href="https://map.geo.admin.ch/#/map?lang=de&center=2699127.86,1262787.72&z=4&topic=ech&layers=ch.swisstopo.swissalti3d-reliefschattierung,f;ch.bav.haltestellen-oev,f;ch.astra.wanderland-sperrungen_umleitungen,f;ch.swisstopo.swisstlm3d-wanderwege,f&bgLayer=ch.swisstopo.pixelkarte-farbe&catalogNodes=457" title="Schweizer Karte">
-            <img src="assets/icons/GeoAdmin_Map.png" alt="" />
-            <span>SwissTopo</span>
-          </a>
-        </div>
-        <button id="links-toggle" class="links-toggle" type="button" aria-label="Show more" aria-expanded="false">
-          <span>Show more</span>
-          <img src="assets/icons/arrow_down.svg" alt="" />
-        </button>
-      </nav>
+      <button class="toggle" id="toggle-more" type="button" aria-expanded="false">
+        <span>More</span>
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </section>
 
-      <a class="tile weather" href="https://www.meteoschweiz.admin.ch/lokalprognose/winterthur/8400.html" aria-label="Local weather forecast">
-        <span class="weather-label">WINTERTHUR, CH</span>
-        <span class="weather-reading">
-          <img id="weather-icon" alt="" />
-          <span id="weather-temperature" aria-live="polite"></span>
-        </span>
-      </a>
+    <!-- Top right: weather -->
+    <section class="card weather" aria-label="Weather">
+      <div class="w-icon" id="w-icon"></div>
+      <div class="w-body">
+        <div class="w-temp" id="w-temp">--°</div>
+        <div class="w-desc" id="w-desc">Locating…</div>
+        <div class="w-place" id="w-place"></div>
+      </div>
+    </section>
 
-      <aside class="tile calendar" aria-label="Current month calendar">
-        <div class="calendar-header">
-          <span id="calendar-month">September 2024</span>
-        </div>
-        <div id="calendar-weekdays" aria-hidden="true"></div>
-        <div id="calendar-grid" aria-live="polite"></div>
-      </aside>
+    <!-- Bottom left: calendar -->
+    <section class="card calendar" aria-label="Calendar">
+      <div class="cal-title" id="cal-title"></div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </section>
 
-      <section class="time" aria-label="Current date and time">
-        <div id="time-hours" aria-live="off">17:38</div>
-        <p id="time-date">Sonntag, 15. September 2024</p>
-      </section>
-    </main>
-  </body>
+    <!-- Bottom right: clock -->
+    <section class="clock" aria-label="Clock">
+      <div class="time" id="time">--:--</div>
+      <div class="date" id="date"></div>
+    </section>
+  </main>
+</body>
 </html>

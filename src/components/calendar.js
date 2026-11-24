@@ -1,60 +1,30 @@
-const WEEKDAY_SHORT_LABELS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+import { LOCALE } from '../config.js';
 
-export function initCalendar() {
-	const monthLabelElement = document.getElementById("calendar-month");
-	const calendarGridElement = document.getElementById("calendar-grid");
+const WEEKDAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+const titleFmt = new Intl.DateTimeFormat(LOCALE, { month: 'long', year: 'numeric' });
 
-	if (!monthLabelElement || !calendarGridElement) {
-		return;
-	}
+// Current month only, Monday first.
+export function renderCalendar(now) {
+  const y = now.getFullYear();
+  const m = now.getMonth();
+  document.getElementById('cal-title').textContent = titleFmt.format(now);
 
-	renderCalendar(monthLabelElement, calendarGridElement);
+  const cells = WEEKDAYS.map((d) => cell('dow', d));
+
+  const offset = (new Date(y, m, 1).getDay() + 6) % 7; // Monday = 0
+  const days = new Date(y, m + 1, 0).getDate();
+  for (let i = 0; i < offset; i++) cells.push(document.createElement('div'));
+  for (let d = 1; d <= days; d++) {
+    const dow = (offset + d - 1) % 7;
+    const cls = 'day' + (dow >= 5 ? ' weekend' : '') + (d === now.getDate() ? ' today' : '');
+    cells.push(cell(cls, d));
+  }
+  document.getElementById('cal-grid').replaceChildren(...cells);
 }
 
-function renderCalendar(monthLabelElement, calendarGridElement) {
-	const today = new Date();
-	const year = today.getFullYear();
-	const monthIndex = today.getMonth();
-	const monthStart = new Date(year, monthIndex, 1);
-	const monthEnd = new Date(year, monthIndex + 1, 0);
-	const leadingDays = (monthStart.getDay() + 6) % 7;
-	const totalDaysInMonth = monthEnd.getDate();
-	const totalCells = Math.ceil((leadingDays + totalDaysInMonth) / 7) * 7;
-
-	monthLabelElement.textContent = new Intl.DateTimeFormat("de-DE", {
-		month: "long",
-		year: "numeric",
-	}).format(monthStart);
-
-	calendarGridElement.innerHTML = "";
-
-	for (let cellIndex = 0; cellIndex < totalCells; cellIndex += 1) {
-		const dayValue = cellIndex - leadingDays + 1;
-		const dayElement = document.createElement("span");
-		dayElement.className = "calendar-day";
-
-		if (cellIndex < leadingDays || dayValue > totalDaysInMonth) {
-			dayElement.classList.add("is-empty");
-			calendarGridElement.appendChild(dayElement);
-			continue;
-		}
-
-		dayElement.textContent = String(dayValue);
-		if (
-			today.getDate() === dayValue &&
-			today.getMonth() === monthIndex &&
-			today.getFullYear() === year
-		) {
-			dayElement.classList.add("is-today");
-		}
-
-		calendarGridElement.appendChild(dayElement);
-	}
-
-	const weekdayRow = document.getElementById("calendar-weekdays");
-	if (weekdayRow) {
-		weekdayRow.innerHTML = WEEKDAY_SHORT_LABELS
-			.map((label) => `<span>${label}</span>`)
-			.join("");
-	}
+function cell(className, text) {
+  const el = document.createElement('div');
+  el.className = className;
+  el.textContent = text;
+  return el;
 }

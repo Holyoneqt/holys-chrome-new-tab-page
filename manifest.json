@@ -6,5 +6,6 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "permissions": ["geolocation"],
   "manifest_version": 3
 }

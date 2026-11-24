@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="dash">
+    <!-- Top left: quick links -->
+    <section class="card links" aria-label="Quick links">
+      <div class="grid" id="links-main"></div>
+      <div class="more" id="links-more" hidden>
+        <div class="grid" id="links-extra"></div>
+        <form class="add-form" id="add-form" hidden>
+          <input id="add-name" placeholder="Name" maxlength="20" required>
+          <input id="add-url" placeholder="https://…" required>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      <button class="toggle" id="toggle-more" aria-expanded="false">
+        <span>More</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </section>
+
+    <!-- Top right: weather -->
+    <section class="card weather" id="weather" aria-label="Weather">
+      <div class="w-icon" id="w-icon"></div>
+      <div class="w-body">
+        <div class="w-temp" id="w-temp">--°</div>
+        <div class="w-desc" id="w-desc">Locating…</div>
+        <div class="w-place" id="w-place"></div>
+      </div>
+    </section>
+
+    <!-- Bottom left: calendar -->
+    <section class="card calendar" aria-label="Calendar">
+      <div class="cal-title" id="cal-title"></div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </section>
+
+    <!-- Bottom right: clock -->
+    <section class="clock" aria-label="Clock">
+      <div class="time" id="time">--:--</div>
+      <div class="date" id="date"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

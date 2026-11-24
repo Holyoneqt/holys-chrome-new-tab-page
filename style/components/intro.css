@@ -1,0 +1,66 @@
+/* Calm entrance on every new tab. CSS only, runs once. */
+
+/* A veil in the base color that lifts off the background (also hides the gradient swap). */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background: var(--color-base);
+	pointer-events: none;
+	animation: intro-veil var(--intro-veil-duration) var(--intro-ease) both;
+}
+
+.links,
+.weather,
+.calendar,
+.clock {
+	animation: intro-rise var(--intro-duration) var(--intro-ease) backwards;
+}
+
+.links { animation-delay: var(--intro-delay-links); }
+.weather { animation-delay: var(--intro-delay-weather); }
+.calendar { animation-delay: var(--intro-delay-calendar); }
+
+.clock {
+	animation-name: intro-focus;
+	animation-duration: var(--intro-duration-slow);
+	animation-delay: var(--intro-delay-clock);
+}
+
+.cal-grid .day.today {
+	animation: intro-pop var(--intro-duration) var(--intro-ease) var(--intro-delay-today) backwards;
+}
+
+@keyframes intro-veil {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes intro-rise {
+	from { opacity: 0; transform: var(--intro-rise); }
+	to { opacity: 1; transform: none; }
+}
+
+@keyframes intro-focus {
+	from { opacity: 0; transform: var(--intro-rise); filter: var(--intro-blur); }
+	to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes intro-pop {
+	from { opacity: 0; transform: var(--intro-pop); }
+	to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body::before {
+		display: none;
+	}
+
+	.links,
+	.weather,
+	.calendar,
+	.clock,
+	.cal-grid .day.today {
+		animation: none;
+	}
+}

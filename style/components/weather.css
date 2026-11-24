@@ -1,71 +1,46 @@
 .weather {
-	position: absolute;
-	top: 32px;
-	right: 32px;
-	display: grid;
-	gap: 12px;
-	
-	transition: background 160ms ease, transform 160ms ease;
-}
-
-.weather:hover,
-.weather:focus-visible {
-	transform: translateY(-2px);
-	outline: 2px solid rgba(255, 255, 255, 0.72);
-	outline-offset: 3px;
-}
-
-.weather-label {
-	color: rgba(255, 255, 255, 0.68);
-	text-align: center;
-}
-
-.weather-reading {
+	grid-area: weather;
+	align-self: start;
+	justify-self: end;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	gap: 10px;
+	gap: var(--space-xl);
+	padding: var(--space-xl) var(--space-4xl) var(--space-xl) var(--space-2xl);
+	min-width: var(--weather-min-width);
 }
 
-#weather-icon {
-	width: 36px;
-	height: 36px;
-	object-fit: contain;
-	filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.18));
+.w-icon {
+	width: var(--weather-icon-size);
+	height: var(--weather-icon-size);
 }
 
-#weather-temperature {
-	font-family: "Manrope", sans-serif;
-	font-size: 24px;
-	font-weight: 700;
-	letter-spacing: -0.05em;
+.w-icon svg {
+	width: 100%;
+	height: 100%;
 }
 
-@media (max-width: 560px) {
-	.weather {
-		top: auto;
-		right: 16px;
-		bottom: 31px;
-		min-width: 128px;
-		gap: 6px;
-		padding: 12px 13px;
-		border-radius: 15px;
-	}
-
-	.weather-label {
-		font-size: 8px;
-	}
-
-	.weather-reading {
-		gap: 6px;
-	}
-
-	#weather-icon {
-		width: 28px;
-		height: 28px;
-	}
-
-	#weather-temperature {
-		font-size: 20px;
-	}
+.w-temp {
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-light);
+	line-height: var(--line-height-tight);
 }
+
+.w-desc {
+	font-size: var(--font-size-md);
+	margin-top: var(--space-xs);
+}
+
+.w-place {
+	font-size: var(--font-size-xs);
+	color: var(--color-muted);
+	margin-top: var(--space-2xs);
+}
+
+/* Inline SVG icon colors (see ICONS in src/components/weather.js) */
+.i-sun { fill: var(--color-sun); }
+.i-sun-ray { fill: none; stroke: var(--color-sun); }
+.i-moon { fill: var(--color-moon); }
+.i-cloud { fill: var(--color-cloud); }
+.i-fog { fill: none; stroke: var(--color-cloud); }
+.i-rain { fill: none; stroke: var(--color-rain); }
+.i-snow { fill: var(--color-cloud); }

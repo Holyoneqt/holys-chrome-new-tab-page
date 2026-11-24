@@ -1,35 +1,8 @@
-.background,
-.background-shade {
-	position: absolute;
-	z-index: -1;
-	inset: 0;
-}
-
-.background {
-	background: #17231f;
-}
-
-#background-image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-	animation: background-arrive 1.2s ease-out both;
-}
-
-.background-shade {
-	background:
-		linear-gradient(180deg, rgba(6, 14, 12, 0.38) 0%, transparent 28%, transparent 48%, rgba(6, 14, 12, 0.54) 100%),
-		linear-gradient(90deg, rgba(6, 14, 12, 0.18), transparent 65%);
-}
-
-@keyframes background-arrive {
-	from { opacity: 0; transform: scale(1.025); }
-	to { opacity: 1; transform: scale(1); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-	#background-image {
-		animation: none;
-	}
-}
+/* One class per gradient in variables.css; picked at random by src/components/background.js */
+body.bg-0 { background: var(--bg-0); }
+body.bg-1 { background: var(--bg-1); }
+body.bg-2 { background: var(--bg-2); }
+body.bg-3 { background: var(--bg-3); }
+body.bg-4 { background: var(--bg-4); }
+body.bg-5 { background: var(--bg-5); }
+body.bg-6 { background: var(--bg-6); }

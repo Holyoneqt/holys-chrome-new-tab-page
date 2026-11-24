@@ -1,16 +1,12 @@
-import { getBackgroundImage } from './components/background.js';
-import { initCalendar } from './components/calendar.js';
+import { pickBackground } from './components/background.js';
+import { initCursorLight } from './components/cursor-light.js';
 import { initLinks } from './components/links.js';
-import { startTimeInterval } from './components/time.js';
-import { getWeather } from './components/weather.js';
+import { renderCalendar } from './components/calendar.js';
+import { startClock } from './components/time.js';
+import { loadWeather } from './components/weather.js';
 
-window.onload = () => {
-	// Set background image
-	document.getElementById('background-image').src = getBackgroundImage();
-
-	// Init UI components
-	initLinks();
-	initCalendar();
-	startTimeInterval();
-	getWeather();
-}
+pickBackground();
+initCursorLight();
+initLinks();
+startClock(renderCalendar); // re-renders the calendar whenever the day changes
+loadWeather();

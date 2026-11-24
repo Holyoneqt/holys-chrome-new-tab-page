@@ -1,0 +1,30 @@
+/* Sits between the background and the cards, so the glass cards blur it. */
+.cursor-light {
+	position: fixed;
+	top: calc(var(--cursor-light-size) / -2);
+	left: calc(var(--cursor-light-size) / -2);
+	width: var(--cursor-light-size);
+	height: var(--cursor-light-size);
+	border-radius: var(--radius-round);
+	background: var(--cursor-light-gradient);
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity var(--duration-base), transform var(--cursor-light-lag) ease-out;
+	will-change: transform;
+}
+
+.cursor-light.is-on {
+	opacity: 1;
+}
+
+@media (hover: none) {
+	.cursor-light {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cursor-light {
+		transition: opacity var(--duration-base);
+	}
+}
